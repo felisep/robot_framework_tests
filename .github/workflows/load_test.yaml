@@ -1,6 +1,12 @@
 name: Load Test
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '*/2 * * * *'  # This runs the workflow every day at midnight UTC
+
 
 jobs:
   k6-load-test:
